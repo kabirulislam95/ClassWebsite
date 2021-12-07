@@ -1,2 +1,235 @@
+{%load static %}
 <!DOCTYPE html>
-<p> this is the homepage gonna work </p>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Class Website</title>
+
+    <!-- =============== Bootstrap Core CSS =============== -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <!-- =============== Google fonts =============== -->
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<!-- =============== fonts awesome =============== -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <!-- =============== Plugin CSS =============== -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+    <!-- =============== Custom CSS =============== -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <!-- =============== Owl Carousel Assets =============== -->
+    <link href="{% static 'owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'owl-carousel/owl.theme.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   
+   
+</head>
+
+<body>
+   
+   
+    <!-- =============== nav =============== -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo"> 
+                    </a>
+                </div>
+            
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <h1 style="text-align: center; color: green">Welcome to ClassWeb</h1>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#">About Course</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Admin</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Login</a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                    <a class="dropbtn">Important Links</a>
+                    <div class="dropdown-content">
+                      <a href="#">CUNY</a>
+                      <a href="#">CCNY</a>
+                      <a href="#">Blackboard</a>
+                      <a href="#">Degree Works</a>
+                      <a href="#">FAFSA</a>
+                      <a href="#">Covid-19</a>
+                    </div>
+                  </div>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- =============== navbar-collapse =============== -->
+
+            </div>
+        </div>
+        <!-- =============== container-fluid =============== -->
+    </nav>
+    <!-- =============== header =============== -->
+    <header>
+		<!-- =============== container =============== -->
+        <div class="container">
+            <div class="header-content row">
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <h2 class="wow bounceIn animated" data-wow-delay=".40s">FRIENDLY ASSIGNMENT SUBMISSION</h2>
+                    <h3 class="wow bounceIn animated" data-wow-delay=".50s">MAKE YOUR WORK EASY</h3>
+                    <p class="wow bounceIn animated" data-wow-delay=".60s">Submit your assigment anytime from anywhere</p>
+                    
+                       </div>
+		<!-- =============== container end =============== -->
+    </header>
+    <!-- =============== About =============== -->
+    <section id="about" class="">
+		<!-- =============== container =============== -->
+        <div class="container">
+            <span class="angle2"></span>
+            <span class="angle"></span>
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 col-md-3 wow fadeInLeft animated" data-wow-delay=".5s">
+                    <h1><span>HEY THERE!</span> WELCOME TO ClassWeb</h2>      
+                 </div> 
+                  <div class="col-xs-12 col-sm-7 col-md-9 wow fadeInRight animated" data-wow-delay=".5s">
+                  <h2>Know About the ClassWeb</h2>
+                  <p>This ClassWeb is a great platform for the student and instructor to assign and submit assignments and home work. From this platform, instructor can assign assignment and student can directly contact the instructor for any question or student can submit their assignment easily anytime from anywhere.</P>
+                  </div>     
+            </div>
+        </div>   
+		<!-- =============== container end =============== -->		
+    </section>
+   
+   
+  
+    <section id="contact">
+	
+
+			<div class="row">
+
+				<div class="col-xs-12 col-sm-4 col-md-4 wow bounceIn animated" data-wow-delay=".1s">
+
+					<form>
+						<div class="ajax-hidden">
+							<div class="form-group wow fadeInUp animated">
+								<label for="c_name" class="sr-only">Name</label>
+								<input type="text" placeholder="Name" name="c_name" class="form-control" id="c_name">
+							</div>
+
+							<div data-wow-delay=".1s" class="form-group wow fadeInUp animated">
+								<label for="c_email" class="sr-only">Email</label>
+								<input type="email" placeholder="E-mail" name="c_email" class="form-control" id="c_email">
+							</div>
+
+							<div data-wow-delay=".2s" class="form-group wow fadeInUp animated">
+								<textarea placeholder="Message" rows="7" name="c_message" id="c_message" class="form-control"></textarea>
+							</div>
+
+							<button data-wow-delay=".3s" class="btn btn-sm btn-block wow fadeInUp animated" type="submit">Send Message</button>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
+
+
+
+        <div class="col-xs-12 col-sm-4 col-md-4 wow bounceIn animated" data-wow-delay=".6s">
+
+            <section id="text-15" class="widget widget_text" >
+                      <div class="kk1">
+                         <h3 class="widget-title">The City College of New York</h3> <div class="textwidget">160 Covent Avenue<br>
+                        <p>New York, NY 10031<br>
+                        <p>Tel: (212) 650-7000<br>
+                        Fax: (212) 650-6614<br>
+                        E-mail: <a href="#">ace@ccny.cuny.edu</a></p>
+                      </div> 
+            </section>
+
+        </div>  
+
+       
+          <div class="col-xs-12 col-sm-4 col-md-4 wow bounceIn animated" data-wow-delay=".6s">
+
+					  <section id="text-15" class="widget widget_text" >
+                      <div class="kk">
+                         <h3 class="widget-title">The City College of New York</h3> <div class="textwidget">160 Covent Avenue<br>
+                        <p>New York, NY 10031<br>
+                        <p>Tel: (212) 650-7000<br>
+                        Fax: (212) 650-6614<br>
+                        E-mail: <a href="#">ace@ccny.cuny.edu</a></p>
+                      </div> 
+            </section>
+
+				</div>                
+			</div>
+		</div><!-- =============== container end =============== -->
+	</section>
+    <!-- Footer -->
+    <footer id="footer">
+	<!-- =============== container =============== -->
+    <div class="container">
+			    <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+					<ul class="social-links">
+						<li><a class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-name: fadeInUp;"><i class="fa fa-facebook"></i></a></li>
+						<li><a data-wow-delay=".1s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;"><i class="fa fa-twitter"></i></a></li>
+						<li><a data-wow-delay=".2s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;"><i class="fa fa-google-plus"></i></a></li>
+						<li><a data-wow-delay=".4s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><i class="fa fa-pinterest"></i></a></li>
+						<li><a data-wow-delay=".5s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+
+                    <p class="copyright">
+                        &copy; CCNY @ CSC 33600, FALL 2021
+					</p>
+
+				</div>
+			</div>
+    </div><!-- =============== container end =============== -->
+	</footer>
+    <!-- =============== jQuery =============== -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <!-- =============== Bootstrap Core JavaScript =============== -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- =============== Plugin JavaScript =============== -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fittext.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- =============== Custom Theme JavaScript =============== -->
+    <script src="{% static 'js/creative.js' %}"></script>
+    <!-- =============== owl carousel =============== -->
+    <script src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000,
+                items: 3,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+            });
+
+        });
+    </script>
+</body>
+</html>
