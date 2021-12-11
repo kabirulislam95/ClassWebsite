@@ -9,6 +9,13 @@ from django.contrib import messages
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+def about_course(request):
+    return render(request, 'about_course.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 def loginpage(request):
     if request.method == 'POST':
         username = request.POST ['username']

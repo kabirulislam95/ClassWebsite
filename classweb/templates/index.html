@@ -56,29 +56,29 @@
                   <h1 style="text-align: center; color: green">Welcome to ClassWeb</h1>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="page-scroll" href="#">About Course</a>
+                            <a class="page-scroll" href="{% url 'about_course' %}">About Course</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Admin</a>
+                            <a class="page-scroll" href="{% url 'loginpage' %}">Admin</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Login</a>
+                            <a class="page-scroll" href="{% url 'loginpage' %}">Login</a>
                         </li>
                         <li>
                             <div class="dropdown">
                     <a class="dropbtn">Important Links</a>
                     <div class="dropdown-content">
-                      <a href="#">CUNY</a>
-                      <a href="#">CCNY</a>
-                      <a href="#">Blackboard</a>
-                      <a href="#">Degree Works</a>
-                      <a href="#">FAFSA</a>
-                      <a href="#">Covid-19</a>
+                      <a href="https://www.cuny.edu/">CUNY</a>
+                      <a href="https://www.ccny.cuny.edu/">CCNY</a>
+                      <a href="https://www.cuny.edu/accessibility/applications/blackboard/">Blackboard</a>
+                      <a href="https://degreeworks.cuny.edu/">Degree Works</a>
+                      <a href="https://studentaid.gov/h/apply-for-aid/fafsa">FAFSA</a>
+                      <a href="https://www.worldometers.info/coronavirus/">Covid-19</a>
                     </div>
                   </div>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#">Contact</a>
+                            <a class="page-scroll" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
                 </div>
