@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+body {
+  background-color:#B9CAF1 !important;
+
+}
+
+body{
+   margin:0px;
+   margin-top:60px;
+   padding: 0px;
+}
+*,*::before,*::after{
+   box-sizing: border-box;
+}
+nav{
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: #B9CAF1;
+   overflow: auto;
+   height: auto;
+   text-align:center;
+}
+
+
+
+</style>
+
+
+
+
+<html>
+<head>
+	<title>Unique Id Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css_login/style.css' %}">
+</head>
+<body>
+
+	<form action="unique_page" method="POST">
+		{% csrf_token %}
+		<div style="text-align: center;">
+		  {% for message in messages %}
+		  <h4 style="color: red;">{{message}}</h4>
+		  {% endfor %}
+		</div>
+<br><br><br>
+
+
+
+
+
+	<div class="loginbox">
+		<p>Enter your ID and Unique ID</p>
+		<form action="#" method = "post">
+			<p>Institution ID</p>
+			<input type="number" name="institution_id" placeholder="Institution Id" required>
+			<p>Unique ID</p>
+			<input type="text" name="unique_id" placeholder="Unique Id" maxlength="10" minlength="10" required>
+			
+			   <br><br>
+			<button type="submit">Go to Sign Up Page</button>	
+
+			<p>I do not have my ID or forget ID <a href="contact">Contact Register</a></p>
+		</form>
+
+	</div>
+
+
+
+</form>
+
+</body>
+</html>
