@@ -346,7 +346,7 @@ header .header-content {
 #about::before {
     background:rgba(255, 255, 255, 0.5);
     content:"";
-    height: 10%;
+    /* height: 10%; */
     position:absolute;
     top:0;
     left:0;
@@ -942,5 +942,15 @@ height:272px;
 .dropdown:hover .dropdown-content {display:block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
+
+.buttons_instructor {
+    width: 200px;
+    margin: 0 auto;
+    display: inline;}
+    
+        .action_btn {
+    width: 200px;
+    margin: 0 auto;
+    display: inline;}
 
 
