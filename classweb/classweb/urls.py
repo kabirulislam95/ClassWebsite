@@ -30,5 +30,6 @@ urlpatterns = [
     path('loginpage', views.loginpage, name='loginpage'),
     path('about_course', views.about_course, name='about_course'),
     path('contact', views.contact, name='contact'),
+    path('registration', views.registration, name='registration'),
 
 ]
