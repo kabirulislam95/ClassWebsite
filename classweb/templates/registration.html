@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+body {
+  background-color:#B9CAF1 !important;
+
+}
+
+body{
+   margin:0px;
+   margin-top:140px;
+   padding: 0px;
+}
+*,*::before,*::after{
+   box-sizing: border-box;
+}
+nav{
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: #B9CAF1;
+   overflow: auto;
+   height: auto;
+   text-align:center;
+}
+
+
+
+</style>
+
+
+
+
+<html>
+<head>
+	<title>Sign Up Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css_login/style.css' %}">
+</head>
+<body>
+
+	<form action="registration" method="POST">
+		{% csrf_token %}
+		<div style="text-align: center;">
+		  {% for message in messages %}
+		  <h4 style="color: red;">{{message}}</h4>
+		  {% endfor %}
+		</div>
+<br><br><br>
+
+
+
+
+
+	<div class="loginbox">
+		<form action="#" method = "post">
+            <br>
+            <p>All feilds are required</p>
+
+            <p>First name</p>
+			<input type="text" name="first_name" placeholder="First name">
+            <p>Last Name</p>
+			<input type="text" name="last_name" placeholder="Last Name">
+            <p>User Name</p>
+			<input type="email" name="email" placeholder="Email">
+			<p>User Name</p>
+			<input type="text" name="username" placeholder="User Name">
+			<p>Password</p>
+			<input type="password" name="password" placeholder="Password">
+            <p>Confirm Password</p>
+			<input type="password" name="confirm_password" placeholder="Confirm Password">
+			
+			   <br><br>
+			<button type="submit">Sign Up</button>
+
+
+			<p>I have already have an account <a href="loginpage">Login</a></p>
+		</form>
+
+	</div>
+
+
+
+</form>
+
+</body>
+</html>
