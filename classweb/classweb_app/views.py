@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.http import response
+from django.http.response import Http404, HttpResponseForbidden, HttpResponseRedirect
+from django.http import request, response
 from django.views import View
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.urls.base import reverse
+
 
 
 # Create your views here.
@@ -61,3 +63,8 @@ def loginpage(request):
 
     else:
         return render(request, 'loginpage.html')
+
+
+def InstructorView(request):
+        return render(request, 'instructor.html')
+
