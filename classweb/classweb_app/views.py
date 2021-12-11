@@ -5,6 +5,7 @@ from django.views import View
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.urls.base import reverse
+from classweb_app.models import AllAssignment
 
 
 from classweb_app.models import ProfessorUniqueId, StudentUniqueId
@@ -26,10 +27,10 @@ def unique_page(request):
         unique_id = request.POST.get('unique_id')
         
         if StudentUniqueId.objects.filter(institution_id = institution_id, unique_id = unique_id).exists():
-            return redirect("/")
+            return render(request, 'registration.html')
         
         elif ProfessorUniqueId.objects.filter(institution_id = institution_id, unique_id = unique_id).exists():
-            return redirect("/")
+            return render(request, 'registration.html')
         else:
             messages.info(request, 'Check your credentials')
             return render(request, 'unique_page.html')
@@ -65,11 +66,11 @@ def loginpage(request):
         
         if user is not None and user.is_staff:
             auth.login(request, user)
-            return redirect("/")
+            return render(request, 'instructor.html')
         
         elif user is not None and not user.is_staff:
             auth.login(request, user)
-            return redirect("/")
+            return render(request, 'student.html')
         else:
             messages.info(request, 'Check your credentials')
             return render(request, 'loginpage.html')
@@ -77,6 +78,34 @@ def loginpage(request):
         return render(request, 'loginpage.html')
 
 
-def InstructorView(request):
+def instructor(request):
         return render(request, 'instructor.html')
+
+def student(request):
+        return render(request, 'student.html')
+
+def add_assignment(request):
+    if request.method == 'POST':
+        assignment_name = request.POST.get('assignment_name')
+        description = request.POST.get('description')
+        due_date = request.POST.get('due_date')
+        if len(request.FILES) != 0:
+            file = request.FILES.get('file')
+        ass = AllAssignment()
+        if assignment_name != "":
+            ass.assignment_name = assignment_name
+            ass.description = description
+            ass.due_date = due_date
+            if len(request.FILES) != 0:
+                ass.file=file
+
+            ass.save()
+            return render(request, 'index.html')
+        else:
+            return render(request, 'add_assignment.html')
+    else:
+        return render(request, 'add_assignment.html')
+
+def all_assignment(request):
+        return render(request, 'all_assignment.html')
 
