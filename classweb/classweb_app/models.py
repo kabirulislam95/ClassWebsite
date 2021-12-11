@@ -17,3 +17,22 @@ class ProfessorUniqueId(models.Model):
     
     class Meta:
         db_table = "professor_unique_id"
+
+
+
+class AllAssignment(models.Model):
+    file = models.FileField(upload_to='files/')
+    # cat_image = models.ImageField(upload_to='images/', blank=True)
+
+    assignment_name = models.CharField(max_length=255)
+    due_date = models.DateField()
+    description = models.TextField()
+    # slug = models.SlugField(max_length=100, unique=True)
+    
+    class Meta:
+        db_table = 'assignment'
+
+    def __str__(self):
+    	return self.assignment_name
+
+    

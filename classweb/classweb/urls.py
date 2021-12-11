@@ -33,7 +33,10 @@ urlpatterns = [
     path('registration', views.registration, name='registration'),
 
     path('unique_page', views.unique_page, name='unique_page'),
-    path('instructor', views.InstructorView, name="InstructorView"),
+    path('instructor', views.instructor, name="instructor"),
+    path('student', views.student, name="student"),
+    path('add_assignment', views.add_assignment, name="add_assignment"),
+    path('all_assignment', views.all_assignment, name="all_assignment"),
 
 
 ]
