@@ -6,6 +6,9 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.urls.base import reverse
 from classweb_app.models import AllAssignment
+from django.conf import settings
+from django.core.mail import send_mail
+
 
 
 from classweb_app.models import ProfessorUniqueId, StudentUniqueId
@@ -46,7 +49,7 @@ def registration(request):
         email = request.POST ['email']  
         username = request.POST['username'] 
         password = request.POST ['password']
-        confirm_password = request.POST ['confirm_password']
+
         user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
         user.save()
         return render(request, 'loginpage.html')
@@ -108,4 +111,7 @@ def add_assignment(request):
 
 def all_assignment(request):
         return render(request, 'all_assignment.html')
+
+def current_assignment(request):
+        return render(request, 'current_assignment.html')
 

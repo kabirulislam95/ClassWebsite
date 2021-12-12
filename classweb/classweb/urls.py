@@ -37,6 +37,6 @@ urlpatterns = [
     path('student', views.student, name="student"),
     path('add_assignment', views.add_assignment, name="add_assignment"),
     path('all_assignment', views.all_assignment, name="all_assignment"),
-
+    path('current_assignment', views.current_assignment, name="current_assignment"),
 
 ]
