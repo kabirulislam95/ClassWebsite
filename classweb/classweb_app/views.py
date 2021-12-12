@@ -109,3 +109,14 @@ def add_assignment(request):
 def all_assignment(request):
         return render(request, 'all_assignment.html')
 
+def show(request):
+    Student = StudentUniqueId.objects.all()
+    return render(request,"dataDisplay.html",{'StudentUniqueId':Student})
+
+def show(request):
+    Professor = ProfessorUniqueId.objects.all()
+    return render(request,"dataDisplay.html",{'ProfessorUniqueId':Professor})  
+
+def show(request):
+    assignment = AllAssignment.objects.all()
+    return render(request,"dataDisplay.html",{'AllAssignment':assignment})

@@ -79,17 +79,18 @@ WSGI_APPLICATION = 'classweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'classweb_db',
+        'NAME': 'classweb_database',
         'USER': 'root',
         'HOST': 'localhost',
         'PORT': 3306,
-        'PASSWORD': '',
+        'PASSWORD': 'rootroot',
         'TEST': {
-             'MIRROR': 'default',
+            'MIRROR': 'default',
         },
         'OPTIONS': {
-        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
+
 
 
 
