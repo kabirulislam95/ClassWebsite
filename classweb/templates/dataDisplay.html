@@ -19,15 +19,11 @@
                     <th>Description</th>
                 </tr>
             </thead>
-            <tbody>
-                {% for assignment in AllAssignment%}
                 <tr>
-                    <td>{{assignment.assignment_name}}</td>
-                    <td>{{assignment.due_date}}</td>
-                    <td>{{assignment.description}}</td>
+                    <td>{{show.assignment_name}}</td>
+                    <td>{{show.due_date}}</td>
+                    <td>{{show.description}}</td>
                 </tr>
-                {% endfor %}
-            </tbody>
         </table>
     </div>
 </body>

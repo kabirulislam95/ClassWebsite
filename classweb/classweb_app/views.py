@@ -15,21 +15,24 @@ from classweb_app.models import ProfessorUniqueId, StudentUniqueId
 def index(request):
     return render(request, 'index.html')
 
+
 def about_course(request):
     return render(request, 'about_course.html')
 
+
 def contact(request):
     return render(request, 'contact.html')
+
 
 def unique_page(request):
     if request.method == 'POST':
         institution_id = request.POST.get('institution_id')
         unique_id = request.POST.get('unique_id')
-        
-        if StudentUniqueId.objects.filter(institution_id = institution_id, unique_id = unique_id).exists():
+
+        if StudentUniqueId.objects.filter(institution_id=institution_id, unique_id=unique_id).exists():
             return render(request, 'registration.html')
-        
-        elif ProfessorUniqueId.objects.filter(institution_id = institution_id, unique_id = unique_id).exists():
+
+        elif ProfessorUniqueId.objects.filter(institution_id=institution_id, unique_id=unique_id).exists():
             return render(request, 'registration.html')
         else:
             messages.info(request, 'Check your credentials')
@@ -41,13 +44,14 @@ def unique_page(request):
 def registration(request):
 
     if request.method == 'POST':
-        first_name = request.POST ['first_name']
-        last_name = request.POST ['last_name']
-        email = request.POST ['email']  
-        username = request.POST['username'] 
-        password = request.POST ['password']
-        confirm_password = request.POST ['confirm_password']
-        user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        username = request.POST['username']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        user = User.objects.create_user(
+            username=username, password=password, email=email, first_name=first_name, last_name=last_name)
         user.save()
         return render(request, 'loginpage.html')
 
@@ -55,19 +59,16 @@ def registration(request):
         return render(request, 'registration.html')
 
 
-
-
-
 def loginpage(request):
     if request.method == 'POST':
-        username = request.POST ['username']
-        password = request.POST ['password']
-        user=auth.authenticate(username=username,password=password)
-        
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
+
         if user is not None and user.is_staff:
             auth.login(request, user)
             return render(request, 'instructor.html')
-        
+
         elif user is not None and not user.is_staff:
             auth.login(request, user)
             return render(request, 'student.html')
@@ -79,10 +80,12 @@ def loginpage(request):
 
 
 def instructor(request):
-        return render(request, 'instructor.html')
+    return render(request, 'instructor.html')
+
 
 def student(request):
-        return render(request, 'student.html')
+    return render(request, 'student.html')
+
 
 def add_assignment(request):
     if request.method == 'POST':
@@ -97,7 +100,7 @@ def add_assignment(request):
             ass.description = description
             ass.due_date = due_date
             if len(request.FILES) != 0:
-                ass.file=file
+                ass.file = file
 
             ass.save()
             return render(request, 'index.html')
@@ -106,17 +109,13 @@ def add_assignment(request):
     else:
         return render(request, 'add_assignment.html')
 
+
 def all_assignment(request):
-        return render(request, 'all_assignment.html')
+    return render(request, 'all_assignment.html')
+
 
 def show(request):
-    Student = StudentUniqueId.objects.all()
-    return render(request,"dataDisplay.html",{'StudentUniqueId':Student})
-
-def show(request):
-    Professor = ProfessorUniqueId.objects.all()
-    return render(request,"dataDisplay.html",{'ProfessorUniqueId':Professor})  
-
-def show(request):
-    assignment = AllAssignment.objects.all()
-    return render(request,"dataDisplay.html",{'AllAssignment':assignment})
+    # Student = StudentUniqueId.objects.all(),
+    # Professor = ProfessorUniqueId.objects.all(),
+    # assignment = AllAssignment.objects.all()
+    return render(request, "dataDisplay.html")
