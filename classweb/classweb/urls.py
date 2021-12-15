@@ -23,6 +23,8 @@ from django.contrib.auth import views as auth_views
 
 #from classweb_app.views import VerificationView
 from django.contrib.auth import views as auth_views
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +39,15 @@ urlpatterns = [
     path('student', views.student, name="student"),
     path('add_assignment', views.add_assignment, name="add_assignment"),
     path('all_assignment', views.all_assignment, name="all_assignment"),
+     path('current_assignment', views.current_assignment, name="current_assignment"),
+    path('download/', views.DownloadFileView.as_view(), name="DownloadFileView"),
+    path('pelcon', views.PelconView.as_view(), name="pelcon"),
+    path('myupload/', views.myUpload, name='myupload'),
+    path('upload/', views.uploadFile, name='upload'),
+    path('files/', views.FileView.as_view(), name='files'),
+    path('pelconUpload/', views.pelconUpload, name='pelconUpload'),
+] 
 
 
-]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
