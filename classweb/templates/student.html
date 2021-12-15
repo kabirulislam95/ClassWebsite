@@ -1,6 +1,30 @@
 {%load static %}
 <!DOCTYPE html>
 
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+   
+   <h1>STUDENT PAGE</h1>
+
+   <li>
+    <a class="page-scroll" style="text-decoration: none;" href="{% url 'index' %}">Home</a>
+</li>
+
+<li>
+    <a class="page-scroll" href="{% url 'loginpage' %}">Logout</a>
+</li>
+
+    <br>
+    <li>
+        <a class="page-scroll" href="{% url 'all_assignment' %}">See All Assignment</a>
+    </li>
+
 <style>
 
     body{
@@ -71,6 +95,7 @@
     <button style = "background-color: rgb(216,191,216); padding: 50px;margin-right: 100px"type="button"onclick="location.href='{% url 'all_assignment' %}'">Email Professor</button>
 
   </div>
+
 
     
 </body>
