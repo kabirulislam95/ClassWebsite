@@ -6,6 +6,7 @@ from django.views import View
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.urls.base import reverse
+
 from classweb_app.models import AllAssignment, Pelcone, Files
 from datetime import date
 from django.views import generic
@@ -23,6 +24,11 @@ import mimetypes
 import os
 from django.conf import settings
 
+
+
+from classweb_app.models import AllAssignment
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 
@@ -72,6 +78,7 @@ def registration(request):
         email = request.POST ['email']  
         username = request.POST['username'] 
         password = request.POST ['password']
+
         confirm_password = request.POST ['confirm_password']
 
         if password == confirm_password:
@@ -111,6 +118,12 @@ def registration(request):
         else:
             messages.info(request, "Password does not match")
             return redirect("registration")
+
+
+        user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+        user.save()
+        return render(request, 'loginpage.html')
+
 
     else:
         return render(request, 'registration.html')
@@ -285,6 +298,7 @@ def pelconUpload(request):
 
 
 
+
 # here is for the student_____***********************)))))))
 
 class PelconView2(generic.ListView):
@@ -315,3 +329,8 @@ class VerificationView(View):
         except Exception as ex:
             pass
         return redirect('loginpage')
+
+def current_assignment(request):
+        return render(request, 'current_assignment.html')
+
+
