@@ -52,18 +52,16 @@
                 <div class="card-body"> -->
 
             <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-               
-              
-
-                    <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: left; text-decoration: none; background-color: green; color: white;">Add Assignment</a>
-                <br><br>
-            </ol>
              {% for message in messages %}
                         <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
                             {{ message }}
                         </div>
                     {% endfor %}
+
+                    <ol class="breadcrumb">
+                      <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: left; text-decoration: none; background-color: green; color: white;">Add Assignment</a>
+                  <br><br>
+              </ol>      
             <div class="card mb-3">
                 <div class="card-header text-primary">
                <i class="fas fa-truck text-secondary"></i>
@@ -130,21 +128,21 @@
                           {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+      <!-- <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li> -->
     {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+      <!-- <li class="disabled"><span>&laquo;</span></li> -->
     {% endif %}
     {% for i in paginator.page_range %}
       {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        <!-- <li class="active"><span>{{ i }} <span class="sr-only"></span></span></li> -->
       {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
+        <!-- <li><a href="?page={{ i }}">{{ i }}</a></li> -->
       {% endif %}
     {% endfor %}
     {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+      <!-- <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li> -->
     {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
+      <!-- <li class="disabled"><span>&raquo;</span></li> -->
     {% endif %}
   </ul>
 {% endif %}
@@ -177,9 +175,6 @@
 
 
 
-
-</body>
-</html>
 
 
 

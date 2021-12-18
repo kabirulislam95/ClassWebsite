@@ -158,4 +158,4 @@ EMAIL_HOST_USER = 'ikabirul1010@gmail.com'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL =  'ikabirul1010@gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'ForTecheria' 
+EMAIL_HOST_PASSWORD = 'America007@' 

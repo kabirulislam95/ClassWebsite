@@ -46,8 +46,8 @@ urlpatterns = [
     path('pelcon', views.PelconView.as_view(), name="pelcon"),
      path('pelcon2', views.PelconView2.as_view(), name="pelcon2"),
     path('myupload/', views.myUpload, name='myupload'),
-    path('upload/', views.uploadFile, name='upload'),
-    path('files/', views.FileView.as_view(), name='files'),
+    # path('upload/', views.uploadFile, name='upload'),
+    #path('files/', views.FileView.as_view(), name='files'),
     path('pelconUpload/', views.pelconUpload, name='pelconUpload'),
     path('activate/<uidb64>/<token>',VerificationView.as_view(), name='activate'),
 

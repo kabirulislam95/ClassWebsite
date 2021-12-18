@@ -222,14 +222,14 @@ class DownloadFileView(View):
 
 
 
-class FileView(generic.ListView):
-    model = Files
-    template_name = 'file.html'
-    context_object_name = 'files'
-    paginate_by = 6
+# class FileView(generic.ListView):
+#     model = Files
+#     template_name = 'file.html'
+#     context_object_name = 'files'
+#     paginate_by = 6
 
-    def get_queryset(self):
-    	return Files.objects.order_by('-id')
+#     def get_queryset(self):
+#     	return Files.objects.order_by('-id')
 
 
 
@@ -239,20 +239,20 @@ def uploadForm(request):
 	return render(request, 'upload.html')
 
 
-def uploadFile(request):
-    if request.method == 'POST':
-        filename = request.POST['filename']
-        owner = request.POST['owner']
-        pdf = request.FILES['pdf']
-        cover = request.FILES['cover']
+# def uploadFile(request):
+#     if request.method == 'POST':
+#         filename = request.POST['filename']
+#         owner = request.POST['owner']
+#         pdf = request.FILES['pdf']
+#         # cover = request.FILES['cover']
 
-        a = Files(filename=filename, owner=owner, pdf=pdf, cover=cover)
-        a.save()
-        messages.success(request, 'Files Submitted successfully!')
-        return redirect('files')
-    else:
-    	messages.error(request, 'Files was not Submitted successfully!')
-    	return redirect('myupload')
+#         a = Files(filename=filename, owner=owner, pdf=pdf, cover=cover)
+#         a.save()
+#         messages.success(request, 'Files Submitted successfully!')
+#         return redirect('files')
+#     else:
+#     	messages.error(request, 'Files was not Submitted successfully!')
+#     	return redirect('myupload')
 
 
 
@@ -281,11 +281,11 @@ def myUpload(request):
 def pelconUpload(request):
 	if request.method == 'POST':
 		name = request.POST['name']
-		owner = request.POST['owner']
+		owner = request.POST.get('owner')
 		pdf = request.FILES['pdf']
-		cover = request.FILES['cover']
+		# cover = request.FILES['cover']
 
-		a = Pelcone(name=name, owner=owner, pdf=pdf, cover=cover)
+		a = Pelcone(name=name, owner=owner, pdf=pdf)
 		a.save()
 		messages.success(request, 'Files was Submitted successfully')
 		return redirect('pelcon')
