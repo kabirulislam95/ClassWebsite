@@ -22,7 +22,7 @@
     </span>
   </div>
 </nav>
-<body id="bg" style="background-image: url('{% static "comment/images/4.jpg"%}');">
+<body id="bg">
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" >
   <div class="modal-dialog" role="document">
@@ -40,7 +40,7 @@
                 <li class="breadcrumb-item">
                     <a href="#"></a>
 
-                    <a  class="btn btn-sm btn-success" href="{% url 'pelcon' %}" style="padding: 8px; float: right; background-color: green; color: white;">Back</a>
+                    <a  class="btn btn-sm btn-success" href="{% url 'pelcon' %}" style="padding: 8px; float: right; text-decoration:none; background-color: green; color: white;">Add More Assignment</a>
                 </li>
             </ol>
              {% for message in messages %}

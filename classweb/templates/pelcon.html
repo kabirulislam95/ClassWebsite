@@ -7,19 +7,19 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
-      </li>
-      <h1 class="text-primary">Upload, View and Download Files In Django</h1>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#"><span class="sr-only"></span></a>
+      </li> -->
+      <h1 class="text-primary" style="text-align: center;">INSTRUCTOR PAGE</h1>
+      <br>
+      <h1 class="text-primary" style="text-align: center;">Add New Assignment and View</h1>
     </ul>
-    <span class="navbar-text text-primary">
-      Subscribe For MoTechApp
-    </span>
+   
   </div>
 </nav>
 <body id="bg">
@@ -39,25 +39,25 @@
 
     	<div id="content-wrapper">
         <div class="container-fluid">
-            <ol class="breadcrumb">
+            <!-- <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="">List Of Uploaded Files</a>
                 </li>
-            </ol>
-            <div class="card mb-3">
+            </ol> -->
+            <!-- <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
                     Pelcon Files
                 </div>
-                <div class="card-body">
+                <div class="card-body"> -->
 
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="#"></a>
+               
+              
 
-                    <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: right; background-color: green; color: white;">Upload</a>
-                </li>
+                    <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: left; text-decoration: none; background-color: green; color: white;">Add Assignment</a>
+                <br><br>
             </ol>
              {% for message in messages %}
                         <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
@@ -71,16 +71,16 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
+                            <!-- <thead>
+                            <tr> -->
                                 <!-- <th>No</th>
                                 <th>Cover</th> -->
                                 <!-- <th>File Name</th>
                                 <th>Owner</th>
                                 <th>View</th>
                                 <th>Download</th> -->
-                            </tr>
-                            </thead>
+                            <!-- </tr>
+                            </thead> -->
                             <tbody>
 
 
@@ -92,13 +92,13 @@
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
 
-                                    <td>
+                                    <!-- <td>
                                     {% if file.cover %}
                                     <img src="{{ file.cover.url }}" alt="{{ file.name }}" style="width:100px; height: 100px">
                                     {% else %}
                                     <span class="text-muted">No cover</span>
                                     {% endif %}
-                                   </td>
+                                   </td> -->
 
                                    <!-- filename and owner -->
                                     <td>{{ file.name }}</td>
@@ -108,31 +108,24 @@
                                     {% if file.pdf %}
                                       <a href="{{ file.pdf.url }}" class="btn btn-outline-primary" target="_blank">
                                     View PDF</a>
+                
                                     {% else %}
                                     <span class="text-muted">No PDF</span>
+                                    
                                     {% endif %}
                                   </td>
 
-                                  <td>
-                                    {% if file.pdf %}
-                                      <!-- <a href="{{ file.pdf.url }}" download class="btn btn-outline-success">
-                                    Download PDF</a> -->
 
-                                    <!-- <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: right; background-color: green; color: white;">Upload</a> -->
-                                    {% else %}
-                                    <span class="text-muted">No PDF</span>
-                                    {% endif %}
-                                  </td> 
                                 </tr>
 
                                 <!-- end for and if -->
                                 {% endfor %}
+                               
                                 {% endif %}
                             </tbody>
+                            
                         </table>
-
-
-
+                  
 
                           {% if is_paginated %}
   <ul class="pagination">
