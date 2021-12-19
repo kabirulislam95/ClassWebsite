@@ -31,15 +31,14 @@ class AllAssignment(models.Model):
     class Meta:
         db_table = 'stu_file'
 
-    def __str__(self):
-    	return self.assignment_name
+
 
 
 class Pelcone(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
     pdf = models.FileField(upload_to='store/pdfs')
-    # cover = models.ImageField(upload_to='store/covers', null = True)
+    
 
 
     class Meta:
@@ -47,13 +46,6 @@ class Pelcone(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-
-
-
 
 
 

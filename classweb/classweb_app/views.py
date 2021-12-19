@@ -273,6 +273,20 @@ class PelconView(generic.ListView):
 
 
 
+class AllAssignmentView(generic.ListView):
+	model = AllAssignment
+	template_name = 'all_assignment.html'
+	context_object_name = 'files'
+	paginate_by = 4
+
+
+	def get_queryset(self):
+		return AllAssignment.objects.order_by('-id')
+
+
+
+
+
 def myUpload(request):
 	return render(request, 'myUpload.html')
 
