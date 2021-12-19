@@ -44,7 +44,10 @@ urlpatterns = [
      path('current_assignment', views.current_assignment, name="current_assignment"),
     path('download/', views.DownloadFileView.as_view(), name="DownloadFileView"),
     path('pelcon', views.PelconView.as_view(), name="pelcon"),
-     path('pelcon2', views.PelconView2.as_view(), name="pelcon2"),
+
+    path('student_assignment', views.AllAssignmentView.as_view(), name="student_assignment"),
+
+    path('pelcon2', views.PelconView2.as_view(), name="pelcon2"),
     path('myupload/', views.myUpload, name='myupload'),
     # path('upload/', views.uploadFile, name='upload'),
     #path('files/', views.FileView.as_view(), name='files'),
