@@ -1,7 +1,9 @@
 {% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'comment/vendor/bootstrap/four/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'comment/vendor/bootstrap/three/css/bootstrap.min.css' %}">
 
-
+<link rel="stylesheet" type="text/css" href="{% static 'comment/css/comment.css' %}">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#"></a>
@@ -11,11 +13,11 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <!-- <li class="nav-item active">
-        <a class="nav-link" href="#"><span class="sr-only"></span></a>
+        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
       </li> -->
-      <h1 class="text-primary" style="text-align: center;">STUDENT SUBMISSION PAGE</h1>
+      <h1 class="text-primary" style="text-align: center;">Student Page</h1>
       <br>
-      <h1 class="text-primary" style="text-align: center;">DONWLOAD AND VIEW</h1>
+      <h1 class="text-primary" style="text-align: center;">View, Download And Update Assignment</h1>
     </ul>
    
   </div>
@@ -41,8 +43,8 @@
                 <li class="breadcrumb-item">
                     <a href="">List Of Uploaded Files</a>
                 </li>
-            </ol> -->
-            <!-- <div class="card mb-3">
+            </ol>
+            <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
                     Pelcon Files
@@ -50,18 +52,19 @@
                 <div class="card-body"> -->
 
             <!-- Breadcrumbs-->
-             {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+            <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#"></a>
 
-                    <ol class="breadcrumb">
-                      <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: left; text-decoration: none; background-color: green; color: white;">Add Assignment</a>
-                      
-                      <a  class="btn btn-sm btn-success" href="{% url 'all_assignment' %}" style="padding: 8px; float: right; text-decoration: none; background-color: green; color: white;">See Student Submission</a>
-                  <br><br>
-              </ol>      
+                    <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: right; background-color: green; color: white;">Upload</a>
+                </li>
+            </ol> -->
+            
             <div class="card mb-3">
                 <div class="card-header text-primary">
                <i class="fas fa-truck text-secondary"></i>
@@ -70,14 +73,14 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <!-- <thead>
-                            <tr> -->
-                                <!-- <th>No</th>
-                                <th>Cover</th> -->
-                                <!-- <th>File Name</th>
+                            <tr>
+                                <th>No</th>
+                                <th>Cover</th>
+                                <th>File Name</th>
                                 <th>Owner</th>
                                 <th>View</th>
-                                <th>Download</th> -->
-                            <!-- </tr>
+                                <th>Download</th>
+                            </tr>
                             </thead> -->
                             <tbody>
 
@@ -99,34 +102,40 @@
                                    </td> -->
 
                                    <!-- filename and owner -->
-                                    <td>{{ file.assignment_name }}</td>
-                                    <td>{{ file.description }}</td>
-                                    <td>{{ file.due_date }}</td>
+                                    <td>{{ file.name }}</td>
+                                    <td>{{ file.owner }}</td>
                                      <td>
 
-                                    {% if file.file %}
-                                      <a href="{{ file.file.url }}" class="btn btn-outline-primary" target="_blank">
+                                    {% if file.pdf %}
+                                      <a href="{{ file.pdf.url }}" class="btn btn-outline-primary" target="_blank">
                                     View PDF</a>
-                
                                     {% else %}
                                     <span class="text-muted">No PDF</span>
-                                    
                                     {% endif %}
                                   </td>
 
+                                  <td>
+                                    {% if file.pdf %}
+                                      <a href="{{ file.pdf.url }}" download class="btn btn-outline-success">
+                                    Download PDF</a>
 
+                                    <a  class="btn btn-sm btn-success" href="{% url 'add_assignment' %}" style="padding: 8px; float: right; background-color: green; color: white;">Upload</a>
+                                    {% else %}
+                                    <span class="text-muted">No PDF</span>
+                                    {% endif %}
+                                  </td> 
                                 </tr>
 
                                 <!-- end for and if -->
                                 {% endfor %}
-                               
                                 {% endif %}
                             </tbody>
-                            
                         </table>
-                  
 
-                          {% if is_paginated %}
+
+
+
+  {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
       <!-- <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li> -->
@@ -154,7 +163,7 @@
     </div>
   </tbody>
 </table>
-	
+  
 
 
 
@@ -172,5 +181,18 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from classweb_app.views import VerificationView
 from classweb_app import views
 
 from django.conf import settings
@@ -23,6 +24,8 @@ from django.contrib.auth import views as auth_views
 
 #from classweb_app.views import VerificationView
 from django.contrib.auth import views as auth_views
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +40,32 @@ urlpatterns = [
     path('student', views.student, name="student"),
     path('add_assignment', views.add_assignment, name="add_assignment"),
     path('all_assignment', views.all_assignment, name="all_assignment"),
-    path('current_assignment', views.current_assignment, name="current_assignment"),
 
-]
+     path('current_assignment', views.current_assignment, name="current_assignment"),
+    path('download/', views.DownloadFileView.as_view(), name="DownloadFileView"),
+    path('pelcon', views.PelconView.as_view(), name="pelcon"),
+
+    path('student_assignment', views.AllAssignmentView.as_view(), name="student_assignment"),
+
+    path('pelcon2', views.PelconView2.as_view(), name="pelcon2"),
+    path('myupload/', views.myUpload, name='myupload'),
+    # path('upload/', views.uploadFile, name='upload'),
+    #path('files/', views.FileView.as_view(), name='files'),
+    path('pelconUpload/', views.pelconUpload, name='pelconUpload'),
+    path('activate/<uidb64>/<token>',VerificationView.as_view(), name='activate'),
+
+
+#For forget Password
+    
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name = 'reset_password.html'), name='reset_password'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name = 'password_reset_send.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name = 'password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name = 'password_reset_done.html'), name='password_reset_complete'),
+
+    
+] 
+
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,6 @@
 
 
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#"></a>
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
@@ -13,9 +12,9 @@
       <!-- <li class="nav-item active">
         <a class="nav-link" href="#"><span class="sr-only"></span></a>
       </li> -->
-      <h1 class="text-primary" style="text-align: center;">STUDENT SUBMISSION PAGE</h1>
+      <h1 class="text-primary" style="text-align: center;">INSTRUCTOR PAGE</h1>
       <br>
-      <h1 class="text-primary" style="text-align: center;">DONWLOAD AND VIEW</h1>
+      <h1 class="text-primary" style="text-align: center;">Add New Assignment and View</h1>
     </ul>
    
   </div>
@@ -59,7 +58,7 @@
                     <ol class="breadcrumb">
                       <a  class="btn btn-sm btn-success" href="{% url 'myupload' %}" style="padding: 8px; float: left; text-decoration: none; background-color: green; color: white;">Add Assignment</a>
                       
-                      <a  class="btn btn-sm btn-success" href="{% url 'all_assignment' %}" style="padding: 8px; float: right; text-decoration: none; background-color: green; color: white;">See Student Submission</a>
+                      <a  class="btn btn-sm btn-success" href="{% url 'student_assignment' %}" style="padding: 8px; float: right; text-decoration: none; background-color: green; color: white;">See Student Submission</a>
                   <br><br>
               </ol>      
             <div class="card mb-3">
@@ -99,13 +98,12 @@
                                    </td> -->
 
                                    <!-- filename and owner -->
-                                    <td>{{ file.assignment_name }}</td>
-                                    <td>{{ file.description }}</td>
-                                    <td>{{ file.due_date }}</td>
+                                    <td>{{ file.name }}</td>
+                                    <td>{{ file.owner }}</td>
                                      <td>
 
-                                    {% if file.file %}
-                                      <a href="{{ file.file.url }}" class="btn btn-outline-primary" target="_blank">
+                                    {% if file.pdf %}
+                                      <a href="{{ file.pdf.url }}" class="btn btn-outline-primary" target="_blank">
                                     View PDF</a>
                 
                                     {% else %}
@@ -172,5 +170,18 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
