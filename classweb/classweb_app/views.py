@@ -7,7 +7,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.urls.base import reverse
 
-from classweb_app.models import AllAssignment, Pelcone, Files
+from classweb_app.models import AllAssignment, Pelcone, AssignmentDisplay
 from datetime import date
 from django.views import generic
 
@@ -140,11 +140,11 @@ def loginpage(request):
         
         if user is not None and user.is_staff and not user.is_superuser:
             auth.login(request, user)
-            return redirect ("pelcon")
+            return redirect ("assignmentDisplay")
         
         elif user is not None and not user.is_staff and not user.is_superuser:
             auth.login(request, user)
-            return redirect ("pelcon2")
+            return redirect ("studentDisplay")
 
         elif user is not None and user.is_superuser:
             auth.login(request, user)
@@ -156,11 +156,10 @@ def loginpage(request):
         return render(request, 'loginpage.html')
 
 
-def instructor(request):
-        return render(request, 'instructor.html')
+def logout(request):
+    auth.logout(request)
+    return render(request, 'index.html')
 
-def student(request):
-        return render(request, 'student.html')
 
 
 
@@ -207,29 +206,6 @@ def current_assignment(request):
 
 
 
-class DownloadFileView(View):
-    def get(self, request):
-        filename = request.GET.get('file', None)
-        filepath = f'{settings.BASE_DIR}/media/{filename}'
-        try:
-            with open(filepath, 'rb') as _file:
-                mime_type, _ = mimetypes.guess_type(filepath)
-                response = HttpResponse(_file, content_type=mime_type)
-                response['Content-Disposition'] = "attachment; filename=%s" % filename
-                return response
-        except FileNotFoundError:
-            raise Http404()
-
-
-
-# class FileView(generic.ListView):
-#     model = Files
-#     template_name = 'file.html'
-#     context_object_name = 'files'
-#     paginate_by = 6
-
-#     def get_queryset(self):
-#     	return Files.objects.order_by('-id')
 
 
 
@@ -239,37 +215,20 @@ def uploadForm(request):
 	return render(request, 'upload.html')
 
 
-# def uploadFile(request):
-#     if request.method == 'POST':
-#         filename = request.POST['filename']
-#         owner = request.POST['owner']
-#         pdf = request.FILES['pdf']
-#         # cover = request.FILES['cover']
-
-#         a = Files(filename=filename, owner=owner, pdf=pdf, cover=cover)
-#         a.save()
-#         messages.success(request, 'Files Submitted successfully!')
-#         return redirect('files')
-#     else:
-#     	messages.error(request, 'Files was not Submitted successfully!')
-#     	return redirect('myupload')
 
 
 
 
 
-
-class PelconView(generic.ListView):
-	model = Pelcone
-	template_name = 'pelcon.html'
+class AssignmentDisplayView(generic.ListView):
+	model = AssignmentDisplay
+	template_name = 'assignmentDisplay.html'
 	context_object_name = 'files'
 	paginate_by = 4
 
 
 	def get_queryset(self):
-		return Pelcone.objects.order_by('-id')
-
-
+		return AssignmentDisplay.objects.order_by('-id')
 
 
 
@@ -292,17 +251,22 @@ def myUpload(request):
 
 
 
-def pelconUpload(request):
+
+
+
+
+
+def assignmentDisplayUpload(request):
 	if request.method == 'POST':
 		name = request.POST['name']
-		owner = request.POST.get('owner')
+		due_date = request.POST.get('due_date')
 		pdf = request.FILES['pdf']
-		# cover = request.FILES['cover']
 
-		a = Pelcone(name=name, owner=owner, pdf=pdf)
+
+		a = AssignmentDisplay(name=name, due_date=due_date, pdf=pdf)
 		a.save()
 		messages.success(request, 'Files was Submitted successfully')
-		return redirect('pelcon')
+		return redirect('assignmentDisplay')
 	else:
 		messages.error(request, 'Files was not Submitted successfully')
 		return redirect('myupload')
@@ -313,17 +277,20 @@ def pelconUpload(request):
 
 
 
-# here is for the student_____***********************)))))))
 
-class PelconView2(generic.ListView):
-	model = Pelcone
-	template_name = 'pelcon2.html'
+
+
+
+class studentDisplayView(generic.ListView):
+	model = AssignmentDisplay
+	template_name = 'studentDisplay.html'
 	context_object_name = 'files'
 	paginate_by = 4
 
 
 	def get_queryset(self):
-		return Pelcone.objects.order_by('-id')
+		return AssignmentDisplay.objects.order_by('-id')
+
 
 
 class VerificationView(View):

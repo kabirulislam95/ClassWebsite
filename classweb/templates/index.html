@@ -83,15 +83,26 @@
                         <li>
                             <a class="page-scroll" href="{% url 'about_course' %}">About Course</a>
                         </li>
-                        <li>
-                            <a class="page-scroll" href="{% url 'loginpage' %}">Admin</a>
-                        </li>
+                        
                         <li>
                             <a class="page-scroll" href="{% url 'unique_page' %}">Sign Up</a>
                         </li>
-                        <li>
-                            <a class="page-scroll" href="{% url 'loginpage' %}">Login</a>
-                        </li>
+                        <div class="dropdown">
+                            <button class="dropbtn"><i class="glyphicon glyphicon-user" style="font-size:25px"></i></button>
+                            <div class="dropdown-content">
+                                {% if user.is_authenticated and not user.is_staff %}
+                                <a href="#">Hello, {{user.first_name}}</a>
+                                <a href="{% url 'logout' %}">Logout</a>
+                                
+                                {% elif user.is_authenticated %}
+                                <a href="#">Hello, {{user.first_name}}</a>
+                                <a href="{% url 'logout' %}">Logout</a>
+                                {% else %}
+                                <a href="{% url 'loginpage' %}">Login</a>
+                            
+                                 {% endif %}
+                            </div>
+                        </div>
                         <li>
                             <div class="dropdown">
                     <a class="dropbtn">Important Links</a>
