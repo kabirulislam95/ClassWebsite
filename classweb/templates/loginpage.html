@@ -22,6 +22,7 @@ nav{
    overflow: auto;
    height: auto;
    text-align:center;
+   overflow: visible;
 }
 
 
@@ -54,7 +55,7 @@ nav{
 </head>
 <body>
 
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style = "background-color: rgb(216,191,216); padding-top: 20px; padding-bottom: 20px;">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style = "background-color: black; padding-top: 20px; padding-bottom: 20px;">
         <div class="container">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,7 +73,10 @@ nav{
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right"  style = "margin-right:270px; margin-left:-50000px">
+                    <ul class="nav navbar-nav navbar-right"  style = "margin-right:210px; margin-left:-50000px">
+						<li>
+                            <a class="page-scroll" href="{% url 'index' %}">Home</a>
+                        </li>
                         <li>
                             <a class="page-scroll" href="{% url 'about_course' %}">About Course</a>
                         </li>
@@ -125,7 +129,7 @@ nav{
 
 
 	<div class="loginbox">
-		<p>Login with your credentials</p>
+		<h2>Login with your credentials</h2>
 		<form action="#" method = "post">
 			<p>User Name</p>
 			<input type="text" name="username" placeholder="User Name">

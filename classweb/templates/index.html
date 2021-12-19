@@ -1,5 +1,33 @@
 {%load static %}
 <!DOCTYPE html>
+<style>
+    body {
+      background-color:#B9CAF1 !important;
+    
+    }
+    
+    body{
+       margin:0px;
+       margin-top:60px;
+       padding: 0px;
+    }
+    *,*::before,*::after{
+       box-sizing: border-box;
+    }
+    nav{
+       position: fixed;
+       top: 0;
+       width: 100%;
+       background-color: #B9CAF1;
+       overflow: auto;
+       height: auto;
+       text-align:center;
+       overflow: visible;
+    }
+    
+    
+    
+    </style>
 
 <html lang="en">
 <head>
@@ -25,16 +53,15 @@
     <link href="{% static 'owl-carousel/owl.carousel.css' %}" rel="stylesheet">
     <link href="{% static 'owl-carousel/owl.theme.css' %}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-   
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->   
    
 </head>
 
 <body>
-   
+
    
     <!-- =============== nav =============== -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style = "background-color: black; padding-top: 20px; padding-bottom: 20px;">
         <div class="container">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,15 +72,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo"> 
-                    </a>
+                    
                 </div>
             
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <h1 style="text-align: center; color: green">Welcome to ClassWeb</h1>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a class="page-scroll" href="{% url 'about_course' %}">About Course</a>
@@ -91,15 +116,28 @@
         </div>
         <!-- =============== container-fluid =============== -->
     </nav>
+    
     <!-- =============== header =============== -->
     <header>
 		<!-- =============== container =============== -->
-        <div class="container">
+        <div class="container" style = "background-image:url(static/img/background.jpg); width: 100%;
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+        background-size: 100% 100%;
+   
+        background-repeat: no-repeat;
+        background-position: center center;
+   ">
+            
+            <h1 style="text-align: center; color: green; margin-top: 200px; font-weight: bold;">Welcome to ClassWeb</h1>
             <div class="header-content row">
-                <div class="col-xs-12 col-sm-5 col-md-5">
-                    <h2 class="wow bounceIn animated" data-wow-delay=".40s">FRIENDLY ASSIGNMENT SUBMISSION</h2>
+                <div class="col-xs-12 col-sm-5 col-md-5" style = "margin-top: -200px;">
+                    <h2 class="wow bounceIn animated" data-wow-delay=".40s" style = "color:black">FRIENDLY ASSIGNMENT SUBMISSION</h2>
                     <h3 class="wow bounceIn animated" data-wow-delay=".50s">MAKE YOUR WORK EASY</h3>
-                    <p class="wow bounceIn animated" data-wow-delay=".60s">Submit your assigment anytime from anywhere</p>
+                    <p class="wow bounceIn animated" data-wow-delay=".60s"  style = "color:black">Submit your assigment anytime from anywhere</p>
                     
                        </div>
 		<!-- =============== container end =============== -->
