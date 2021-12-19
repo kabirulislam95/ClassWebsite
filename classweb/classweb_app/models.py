@@ -26,7 +26,7 @@ class AllAssignment(models.Model):
     description = models.TextField()
     status = models.BooleanField(default=True)
     file = models.FileField(upload_to='store/stu_files')
-    # slug = models.SlugField(max_length=100, unique=True)
+
     
     class Meta:
         db_table = 'stu_file'
@@ -49,22 +49,22 @@ class Pelcone(models.Model):
 
 
 
-class Files(models.Model):
-    filename = models.CharField(max_length=100)
-    owner = models.CharField(max_length=100)
-    pdf = models.FileField(upload_to='store/pdfs/')
-    # cover = models.ImageField(upload_to='store/covers/', null=True, blank=True)
 
-    def __str__(self):
-        return self.filename
+
+class AssignmentDisplay(models.Model):
+    name = models.CharField(max_length=100)
+    due_date = models.DateField()
+    pdf = models.FileField(upload_to='store/assignments')
+    
+
 
     class Meta:
-        db_table = 'files'
+        db_table = 'assignment_display'
 
-    def delete(self, *args, **kwargs):
-        self.pdf.delete()
-        # self.cover.delete()
-        super().delete(*args, **kwargs)
+    def __str__(self):
+        return self.name
+
+
 
 
     

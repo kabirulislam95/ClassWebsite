@@ -34,27 +34,17 @@ urlpatterns = [
     path('about_course', views.about_course, name='about_course'),
     path('contact', views.contact, name='contact'),
     path('registration', views.registration, name='registration'),
-
+    path('logout', views.logout, name='logout'),
     path('unique_page', views.unique_page, name='unique_page'),
-    path('instructor', views.instructor, name="instructor"),
-    path('student', views.student, name="student"),
     path('add_assignment', views.add_assignment, name="add_assignment"),
     path('all_assignment', views.all_assignment, name="all_assignment"),
-
-     path('current_assignment', views.current_assignment, name="current_assignment"),
-    path('download/', views.DownloadFileView.as_view(), name="DownloadFileView"),
-    path('pelcon', views.PelconView.as_view(), name="pelcon"),
-
+    path('current_assignment', views.current_assignment, name="current_assignment"),
+    path('assignmentDisplay', views.AssignmentDisplayView.as_view(), name="assignmentDisplay"),
     path('student_assignment', views.AllAssignmentView.as_view(), name="student_assignment"),
-
-    path('pelcon2', views.PelconView2.as_view(), name="pelcon2"),
+    path('studentDisplay', views.studentDisplayView.as_view(), name="studentDisplay"),
     path('myupload/', views.myUpload, name='myupload'),
-    # path('upload/', views.uploadFile, name='upload'),
-    #path('files/', views.FileView.as_view(), name='files'),
-    path('pelconUpload/', views.pelconUpload, name='pelconUpload'),
+    path('assignmentUpload/', views.assignmentDisplayUpload, name='assignmentUpload'),
     path('activate/<uidb64>/<token>',VerificationView.as_view(), name='activate'),
-
-
 #For forget Password
     
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name = 'reset_password.html'), name='reset_password'),
